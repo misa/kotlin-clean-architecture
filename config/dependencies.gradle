@@ -6,9 +6,47 @@ ext {
     versionName = "0.1.0-SNAPSHOT"
 
     // Android
-    androidBuildToolsVersion = "26.0.1"
+    androidBuildToolsVersion = "26.0.2"
     androidMinSdkVersion = 21
     androidTargetSdkVersion = 26
     androidCompileSdkVersion = 26
     kotlinVersion = '1.1.50'
+
+    // Libraries
+    androidSupportLibraryVersion = '26.1.0'
+    constraintLayoutVersion = '1.0.2'
+
+    /**
+     * Presentation
+     */
+    presentationDependencies = [
+            supportAppcompat:   "com.android.support:appcompat-v7:${androidSupportLibraryVersion}",
+            supportDesign:      "com.android.support:design:${androidSupportLibraryVersion}",
+            constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+    ]
+
+    /**
+     * Domain
+     */
+    domainDependencies = [
+    ]
+
+    /**
+     * Data source
+     */
+    dataSourceDependencies = [
+    ]
+
+    /**
+     * Testing
+     */
+    testDependencies = [
+    ]
+
+    /**
+     * Development
+     */
+    developmentDependencies = [
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}",
+    ]
 }
