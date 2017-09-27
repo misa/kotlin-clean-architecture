@@ -15,6 +15,7 @@ ext {
     // Libraries
     androidSupportLibraryVersion = '26.1.0'
     constraintLayoutVersion = '1.0.2'
+    daggerVersion = '2.11'
 
     /**
      * Presentation
@@ -23,6 +24,9 @@ ext {
             supportAppcompat:   "com.android.support:appcompat-v7:${androidSupportLibraryVersion}",
             supportDesign:      "com.android.support:design:${androidSupportLibraryVersion}",
             constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+            dagger:             "com.google.dagger:dagger:${daggerVersion}",
+            daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
+            daggerSupport:      "com.google.dagger:dagger-android-support:${daggerVersion}",
     ]
 
     /**

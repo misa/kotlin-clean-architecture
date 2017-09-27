@@ -1,5 +1,7 @@
 // Android related versioning
 
+apply plugin: 'kotlin-kapt'
+
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
 
@@ -28,4 +30,10 @@ android {
     lintOptions {
         lintConfig file("../config/lint.xml")
     }
+}
+
+dependencies {
+    implementation presentationDependencies.dagger
+    implementation presentationDependencies.daggerSupport
+    kapt presentationDependencies.daggerCompiler
 }
