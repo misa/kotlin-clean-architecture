@@ -1,0 +1,14 @@
+
+ext {
+    // Application
+    appId = "name.kocian.clean"
+    versionCode = 1
+    versionName = "0.1.0-SNAPSHOT"
+
+    // Android
+    androidBuildToolsVersion = "26.0.1"
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 26
+    androidCompileSdkVersion = 26
+    kotlinVersion = '1.1.50'
+}
