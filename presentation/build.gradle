@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../config/android.gradle'
+
+android {
+    defaultConfig {
+        applicationId rootProject.ext.appId
+
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':datasource')
+
+    implementation presentationDependencies.supportDesign
+    implementation presentationDependencies.supportAppcompat
+    implementation presentationDependencies.constraintLayout
+
+    implementation developmentDependencies.kotlin
+}
