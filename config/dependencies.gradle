@@ -26,7 +26,9 @@ ext {
             constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
             dagger:             "com.google.dagger:dagger:${daggerVersion}",
             daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
+            daggerAndroid:      "com.google.dagger:dagger-android:${daggerVersion}",
             daggerSupport:      "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerProcessor:    "com.google.dagger:dagger-android-processor:${daggerVersion}",
     ]
 
     /**
