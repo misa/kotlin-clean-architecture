@@ -40,4 +40,6 @@ dependencies {
     annotationProcessor presentationDependencies.daggerProcessor
     kapt presentationDependencies.daggerCompiler
     kapt presentationDependencies.daggerProcessor
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.51"
 }
