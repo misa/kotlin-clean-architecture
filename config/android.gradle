@@ -37,18 +37,16 @@ dependencies {
     implementation presentationDependencies.dagger
     implementation presentationDependencies.daggerAndroid
     implementation presentationDependencies.daggerSupport
-    annotationProcessor presentationDependencies.daggerCompiler
-    annotationProcessor presentationDependencies.daggerProcessor
     kapt presentationDependencies.daggerCompiler
     kapt presentationDependencies.daggerProcessor
 
     implementation presentationDependencies.rxJava
     implementation presentationDependencies.rxAndroid
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.51"
     testImplementation testDependencies.mockito
     testImplementation testDependencies.assertJ
     testImplementation junit5()
     testImplementation junit5Params()
 
+    implementation developmentDependencies.kotlin
 }
