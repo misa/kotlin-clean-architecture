@@ -1,5 +1,7 @@
 // Android related versioning
 
+apply plugin: 'kotlin-kapt'
+
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
 
@@ -28,4 +30,16 @@ android {
     lintOptions {
         lintConfig file("../config/lint.xml")
     }
+}
+
+dependencies {
+    implementation presentationDependencies.dagger
+    implementation presentationDependencies.daggerAndroid
+    implementation presentationDependencies.daggerSupport
+    annotationProcessor presentationDependencies.daggerCompiler
+    annotationProcessor presentationDependencies.daggerProcessor
+    kapt presentationDependencies.daggerCompiler
+    kapt presentationDependencies.daggerProcessor
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.51"
 }

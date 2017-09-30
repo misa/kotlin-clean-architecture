@@ -3,18 +3,19 @@ ext {
     // Application
     appId = "name.kocian.clean"
     versionCode = 1
-    versionName = "0.1.0"
+    versionName = "0.2.0"
 
     // Android
     androidBuildToolsVersion = "26.0.2"
     androidMinSdkVersion = 21
     androidTargetSdkVersion = 26
     androidCompileSdkVersion = 26
-    kotlinVersion = '1.1.50'
+    kotlinVersion = '1.1.51'
 
     // Libraries
     androidSupportLibraryVersion = '26.1.0'
     constraintLayoutVersion = '1.0.2'
+    daggerVersion = '2.11'
 
     /**
      * Presentation
@@ -23,6 +24,11 @@ ext {
             supportAppcompat:   "com.android.support:appcompat-v7:${androidSupportLibraryVersion}",
             supportDesign:      "com.android.support:design:${androidSupportLibraryVersion}",
             constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+            dagger:             "com.google.dagger:dagger:${daggerVersion}",
+            daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
+            daggerAndroid:      "com.google.dagger:dagger-android:${daggerVersion}",
+            daggerSupport:      "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerProcessor:    "com.google.dagger:dagger-android-processor:${daggerVersion}",
     ]
 
     /**
