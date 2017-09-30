@@ -19,6 +19,10 @@ ext {
     rxJavaVersion = '2.1.4'
     rxAndroidVersion = '2.0.1'
 
+    //Testing
+    mockitoVersion = '2.10.0'
+    assertJVersion = '3.8.0'
+
     /**
      * Presentation
      */
@@ -51,6 +55,8 @@ ext {
      * Testing
      */
     testDependencies = [
+            mockito:            "org.mockito:mockito-core:${mockitoVersion}",
+            assertJ:            "org.assertj:assertj-core:${assertJVersion}",
     ]
 
     /**
