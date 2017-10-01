@@ -47,6 +47,7 @@ dependencies {
     testImplementation testDependencies.assertJ
     testImplementation junit5()
     testImplementation junit5Params()
+    testCompileOnly testDependencies.junitPlugin
 
     implementation developmentDependencies.kotlin
 }

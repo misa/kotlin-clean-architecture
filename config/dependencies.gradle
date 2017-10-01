@@ -22,6 +22,7 @@ ext {
     //Testing
     mockitoVersion = '2.10.0'
     assertJVersion = '3.8.0'
+    junitPluginVersion = '1.0.0'
 
     /**
      * Presentation
@@ -57,6 +58,7 @@ ext {
     testDependencies = [
             mockito:            "org.mockito:mockito-core:${mockitoVersion}",
             assertJ:            "org.assertj:assertj-core:${assertJVersion}",
+            junitPlugin:        "de.mannodermaus.gradle.plugins:android-junit5-embedded-runtime:${junitPluginVersion}",
     ]
 
     /**
