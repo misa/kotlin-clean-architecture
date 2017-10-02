@@ -1,6 +1,8 @@
 package name.kocian.clean.domain.repository
 
-interface SampleRepository {
+import io.reactivex.Observable
 
-    fun getTest(): String
+interface SampleRepository: Repository {
+
+    fun getTest(): Observable<String>
 }

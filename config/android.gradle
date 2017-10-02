@@ -1,6 +1,7 @@
 // Android related versioning
 
 apply plugin: 'kotlin-kapt'
+apply plugin: "de.mannodermaus.android-junit5"
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -36,10 +37,17 @@ dependencies {
     implementation presentationDependencies.dagger
     implementation presentationDependencies.daggerAndroid
     implementation presentationDependencies.daggerSupport
-    annotationProcessor presentationDependencies.daggerCompiler
-    annotationProcessor presentationDependencies.daggerProcessor
     kapt presentationDependencies.daggerCompiler
     kapt presentationDependencies.daggerProcessor
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.51"
+    implementation presentationDependencies.rxJava
+    implementation presentationDependencies.rxAndroid
+
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.assertJ
+    testImplementation junit5()
+    testImplementation junit5Params()
+    testCompileOnly testDependencies.junitPlugin
+
+    implementation developmentDependencies.kotlin
 }
