@@ -6,13 +6,12 @@ import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import name.kocian.clean.R
-import name.kocian.clean.domain.usecase.SampleUseCase
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SampleMvp.View {
 
     @Inject
-    lateinit var sampleUseCase: SampleUseCase
+    lateinit var presenter: SampleMvp.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -20,8 +19,11 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        presenter.attachView(this)
+        presenter.initPresenter()
+    }
 
-        sampleUseCase.asObservable()
-                .subscribe({ welcome.text = it })
+    override fun showGreetings(message: String) {
+        welcome.text = message
     }
 }
