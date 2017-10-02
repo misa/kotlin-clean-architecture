@@ -3,7 +3,7 @@ ext {
     // Application
     appId = "name.kocian.clean"
     versionCode = 1
-    versionName = "0.2.0"
+    versionName = "0.3.0"
 
     // Android
     androidBuildToolsVersion = "26.0.2"
