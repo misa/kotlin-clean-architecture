@@ -31,13 +31,6 @@ ext {
             supportAppcompat:   "com.android.support:appcompat-v7:${androidSupportLibraryVersion}",
             supportDesign:      "com.android.support:design:${androidSupportLibraryVersion}",
             constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
-            dagger:             "com.google.dagger:dagger:${daggerVersion}",
-            daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
-            daggerAndroid:      "com.google.dagger:dagger-android:${daggerVersion}",
-            daggerSupport:      "com.google.dagger:dagger-android-support:${daggerVersion}",
-            daggerProcessor:    "com.google.dagger:dagger-android-processor:${daggerVersion}",
-            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
-            rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
     ]
 
     /**
@@ -50,6 +43,19 @@ ext {
      * Data source
      */
     dataSourceDependencies = [
+    ]
+
+    /**
+     * Shared
+     */
+    sharedDependencies = [
+            dagger:             "com.google.dagger:dagger:${daggerVersion}",
+            daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
+            daggerAndroid:      "com.google.dagger:dagger-android:${daggerVersion}",
+            daggerSupport:      "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerProcessor:    "com.google.dagger:dagger-android-processor:${daggerVersion}",
+            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
     ]
 
     /**

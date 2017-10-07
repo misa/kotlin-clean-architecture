@@ -34,14 +34,14 @@ android {
 }
 
 dependencies {
-    implementation presentationDependencies.dagger
-    implementation presentationDependencies.daggerAndroid
-    implementation presentationDependencies.daggerSupport
-    kapt presentationDependencies.daggerCompiler
-    kapt presentationDependencies.daggerProcessor
+    implementation sharedDependencies.dagger
+    implementation sharedDependencies.daggerAndroid
+    implementation sharedDependencies.daggerSupport
+    kapt sharedDependencies.daggerCompiler
+    kapt sharedDependencies.daggerProcessor
 
-    implementation presentationDependencies.rxJava
-    implementation presentationDependencies.rxAndroid
+    implementation sharedDependencies.rxJava
+    implementation sharedDependencies.rxAndroid
 
     testImplementation testDependencies.mockito
     testImplementation testDependencies.assertJ
