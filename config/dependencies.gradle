@@ -45,6 +45,11 @@ ext {
      * Data source
      */
     dataSourceDependencies = [
+
+    /**
+     * Device
+     */
+    deviceDependencies = [
     ]
 
     /**
