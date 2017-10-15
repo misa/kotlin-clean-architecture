@@ -1,7 +1,6 @@
 // Android related versioning
 
 apply plugin: 'kotlin-kapt'
-apply plugin: "de.mannodermaus.android-junit5"
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -45,9 +44,7 @@ dependencies {
 
     testImplementation testDependencies.mockito
     testImplementation testDependencies.assertJ
-    testImplementation junit5()
-    testImplementation junit5Params()
-    testCompileOnly testDependencies.junitPlugin
+    testImplementation testDependencies.junit4
 
     implementation developmentDependencies.kotlin
 }

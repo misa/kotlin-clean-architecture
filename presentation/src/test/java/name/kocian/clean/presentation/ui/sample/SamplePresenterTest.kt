@@ -2,9 +2,8 @@ package name.kocian.clean.presentation.ui.sample
 
 import io.reactivex.Observable
 import name.kocian.clean.domain.usecase.SampleUseCase
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import org.junit.Before
+import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
@@ -19,7 +18,7 @@ class SamplePresenterTest {
     @Mock
     private lateinit var view: SampleMvp.View
 
-    @BeforeEach
+    @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
 
@@ -28,8 +27,7 @@ class SamplePresenterTest {
     }
 
     @Test
-    @DisplayName("initPresenter # shows welcome text")
-    fun initPresenter() {
+    fun initPresenterShowsWelcomeText() {
         val text = "test"
         `when`(sampleUseCase.asObservable()).thenReturn(Observable.just(text))
 

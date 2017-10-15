@@ -3,10 +3,9 @@ package name.kocian.clean.domain.usecase
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import name.kocian.clean.domain.repository.SampleRepository
+import org.junit.Before
 import org.junit.Rule
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
@@ -15,7 +14,8 @@ import org.mockito.junit.MockitoRule
 
 class SampleUseCaseTest {
 
-    @Rule
+    @get:Rule
+    @Suppress("unused")
     val rule: MockitoRule = MockitoJUnit.rule()
 
     private lateinit var sampleUseCase: SampleUseCase
@@ -23,7 +23,7 @@ class SampleUseCaseTest {
     @Mock
     private lateinit var sampleRepository: SampleRepository
 
-    @BeforeEach
+    @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
 
@@ -35,7 +35,6 @@ class SampleUseCaseTest {
     }
 
     @Test
-    @DisplayName("asObservable # returns a result")
     fun testBuildObservable() {
         val result = "test"
         `when`(sampleRepository.getTest()).thenReturn(Observable.just(result))

@@ -1,15 +1,14 @@
 package name.kocian.clean.datasource.repository
 
 import name.kocian.clean.domain.repository.SampleRepository
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import org.junit.Before
+import org.junit.Test
 import org.mockito.MockitoAnnotations
 
 class SampleRepositoryImplTest {
     private lateinit var repository: SampleRepository
 
-    @BeforeEach
+    @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
 
@@ -17,8 +16,7 @@ class SampleRepositoryImplTest {
     }
 
     @Test
-    @DisplayName("getTest # returns sample text")
-    fun getTest() {
+    fun getTestReturnsSampleText() {
         repository.getTest()
                 .test()
                 .assertValueCount(1)
