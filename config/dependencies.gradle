@@ -23,6 +23,8 @@ ext {
     mockitoVersion = '2.10.0'
     assertJVersion = '3.8.0'
     junitVersion = '4.12'
+    espressoCoreVersion = '3.0.1'
+    espressoRunnerVersion = '1.0.1'
 
     /**
      * Presentation
@@ -65,6 +67,8 @@ ext {
             junit4:             "junit:junit:${junitVersion}",
             mockito:            "org.mockito:mockito-core:${mockitoVersion}",
             assertJ:            "org.assertj:assertj-core:${assertJVersion}",
+            espressoCore:       "com.android.support.test.espresso:espresso-core:${espressoCoreVersion}",
+            espressoRunner:     "com.android.support.test:runner:${espressoRunnerVersion}",
     ]
 
     /**

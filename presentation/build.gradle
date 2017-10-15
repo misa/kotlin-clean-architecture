@@ -11,6 +11,7 @@ android {
         versionName rootProject.ext.versionName
 
         vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -30,5 +31,8 @@ dependencies {
     implementation presentationDependencies.constraintLayout
 
     androidTestImplementation testDependencies.junit4
+    androidTestImplementation testDependencies.espressoCore
+    androidTestImplementation testDependencies.espressoRunner
+
     implementation developmentDependencies.kotlin
 }
