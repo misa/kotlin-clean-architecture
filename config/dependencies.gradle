@@ -18,6 +18,9 @@ ext {
     daggerVersion = '2.11'
     rxJavaVersion = '2.1.4'
     rxAndroidVersion = '2.0.1'
+    okHttpVersion = '3.9.0'
+    retrofitVersion = '2.3.0'
+    retrofitRxAdapterVersion = '1.0.0'
 
     //Testing
     mockitoVersion = '2.10.0'
@@ -45,6 +48,12 @@ ext {
      * Data source
      */
     dataSourceDependencies = [
+            okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogging:      "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            retrofit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitGsonMap:    "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitRxAdapter:  "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${retrofitRxAdapterVersion}",
+    ]
 
     /**
      * Device
