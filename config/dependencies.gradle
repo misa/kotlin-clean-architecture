@@ -21,6 +21,7 @@ ext {
     okHttpVersion = '3.9.0'
     retrofitVersion = '2.3.0'
     retrofitRxAdapterVersion = '1.0.0'
+    rxBroadcastVersion = '2.0.0'
 
     //Testing
     mockitoVersion = '2.10.0'
@@ -59,6 +60,7 @@ ext {
      * Device
      */
     deviceDependencies = [
+            rxBroadcast:        "com.cantrowitz:rxbroadcast:${rxBroadcastVersion}",
     ]
 
     /**
