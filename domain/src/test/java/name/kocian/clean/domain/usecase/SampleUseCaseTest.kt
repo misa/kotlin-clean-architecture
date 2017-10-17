@@ -6,12 +6,14 @@ import name.kocian.clean.domain.repository.SampleRepository
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
-import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnit
+import org.mockito.junit.MockitoJUnitRunner
 import org.mockito.junit.MockitoRule
 
+@RunWith(MockitoJUnitRunner::class)
 class SampleUseCaseTest {
 
     @get:Rule
@@ -25,8 +27,6 @@ class SampleUseCaseTest {
 
     @Before
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
-
         sampleUseCase = SampleUseCase(
                 sampleRepository,
                 Schedulers.trampoline(),
