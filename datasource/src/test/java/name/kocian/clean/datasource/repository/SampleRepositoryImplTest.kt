@@ -1,28 +1,40 @@
 package name.kocian.clean.datasource.repository
 
+import io.reactivex.Observable
+import name.kocian.clean.datasource.dto.TubeDto
+import name.kocian.clean.datasource.service.SampleService
 import name.kocian.clean.domain.repository.SampleRepository
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
-import org.mockito.MockitoAnnotations
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.Mockito.`when`
+import org.mockito.junit.MockitoJUnitRunner
+import java.util.*
 
+@RunWith(MockitoJUnitRunner::class)
 class SampleRepositoryImplTest {
     private lateinit var repository: SampleRepository
 
-    @BeforeEach
-    fun setUp() {
-        MockitoAnnotations.initMocks(this)
+    @Mock
+    private lateinit var mockSampleService: SampleService
 
-        repository = SampleRepositoryImpl()
+    @Before
+    fun setUp() {
+        repository = SampleRepositoryImpl(mockSampleService)
     }
 
     @Test
-    @DisplayName("getTest # returns sample text")
-    fun getTest() {
+    fun getTestReturnsSampleText() {
+        val tubeDto = TubeDto("test")
+        val response = Collections.singletonList(tubeDto)
+
+        `when`(mockSampleService.lineStatus).thenReturn(Observable.just(response))
+
         repository.getTest()
                 .test()
                 .assertValueCount(1)
-                .assertValue("test")
+                .assertValue(tubeDto.name)
                 .assertNoErrors()
                 .assertComplete()
     }

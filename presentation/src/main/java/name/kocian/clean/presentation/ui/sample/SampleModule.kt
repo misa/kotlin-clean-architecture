@@ -2,6 +2,8 @@ package name.kocian.clean.presentation.ui.sample
 
 import dagger.Provides
 import name.kocian.clean.datasource.repository.SampleRepositoryImpl
+import name.kocian.clean.datasource.service.SampleService
+import name.kocian.clean.device.network.NetworkManager
 import name.kocian.clean.domain.repository.SampleRepository
 import name.kocian.clean.domain.usecase.SampleUseCase
 import name.kocian.clean.presentation.di.ActivityScope
@@ -11,12 +13,12 @@ import name.kocian.clean.presentation.di.ActivityScope
 class SampleModule {
 
     @Provides
-    fun provideSampleRepository(): SampleRepository {
-        return SampleRepositoryImpl()
+    fun provideSampleRepository(sampleService: SampleService): SampleRepository {
+        return SampleRepositoryImpl(sampleService)
     }
 
     @Provides
-    fun provideSamplePresenter(sampleUseCase: SampleUseCase): SampleMvp.Presenter {
-        return SamplePresenter(sampleUseCase)
+    fun provideSamplePresenter(sampleUseCase: SampleUseCase, networkManager: NetworkManager): SampleMvp.Presenter {
+        return SamplePresenter(sampleUseCase, networkManager)
     }
 }

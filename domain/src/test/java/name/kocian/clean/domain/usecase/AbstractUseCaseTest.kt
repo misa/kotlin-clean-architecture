@@ -3,13 +3,11 @@ package name.kocian.clean.domain.usecase
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import org.junit.Test
 
 class AbstractUseCaseTest {
 
     @Test
-    @DisplayName("Schedulers are set (not null)")
     fun testAsObservable() {
         val abstractUseCase = TestUseCase()
 

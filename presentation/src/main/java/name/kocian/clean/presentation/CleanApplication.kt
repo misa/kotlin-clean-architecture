@@ -5,9 +5,9 @@ import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import name.kocian.clean.presentation.di.ApplicationModule
 import name.kocian.clean.presentation.di.DaggerApplicationComponent
 import javax.inject.Inject
-
 
 class CleanApplication : Application(), HasActivityInjector {
 
@@ -16,7 +16,11 @@ class CleanApplication : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-        DaggerApplicationComponent.create().inject(this)
+        DaggerApplicationComponent
+                .builder()
+                .applicationModule(ApplicationModule(this))
+                .build()
+                .inject(this)
     }
 
     override fun activityInjector(): AndroidInjector<Activity> {

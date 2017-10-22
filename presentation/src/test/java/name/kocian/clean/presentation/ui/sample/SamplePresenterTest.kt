@@ -1,40 +1,43 @@
 package name.kocian.clean.presentation.ui.sample
 
 import io.reactivex.Observable
+import name.kocian.clean.device.network.NetworkManager
 import name.kocian.clean.domain.usecase.SampleUseCase
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
-import org.mockito.MockitoAnnotations
+import org.mockito.junit.MockitoJUnitRunner
 
+@RunWith(MockitoJUnitRunner::class)
 class SamplePresenterTest {
     private lateinit var presenter: SampleMvp.Presenter
 
     @Mock
-    private lateinit var sampleUseCase: SampleUseCase
+    private lateinit var mockSampleUseCase: SampleUseCase
 
     @Mock
-    private lateinit var view: SampleMvp.View
+    private lateinit var mockView: SampleMvp.View
 
-    @BeforeEach
+    @Mock
+    private lateinit var mockNetworkManager: NetworkManager
+
+    @Before
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
-
-        presenter = SamplePresenter(sampleUseCase)
-        presenter.attachView(view)
+        presenter = SamplePresenter(mockSampleUseCase, mockNetworkManager)
+        presenter.attachView(mockView)
     }
 
     @Test
-    @DisplayName("initPresenter # shows welcome text")
-    fun initPresenter() {
+    fun initPresenterShowsWelcomeText() {
         val text = "test"
-        `when`(sampleUseCase.asObservable()).thenReturn(Observable.just(text))
+        `when`(mockSampleUseCase.asObservable()).thenReturn(Observable.just(text))
+        `when`(mockNetworkManager.networkChangesObservable()).thenReturn(Observable.just(true))
 
         presenter.initPresenter()
 
-        verify(view).showGreetings(text)
+        verify(mockView).showGreetings(text)
     }
 }

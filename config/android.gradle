@@ -1,7 +1,6 @@
 // Android related versioning
 
 apply plugin: 'kotlin-kapt'
-apply plugin: "de.mannodermaus.android-junit5"
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -34,20 +33,18 @@ android {
 }
 
 dependencies {
-    implementation presentationDependencies.dagger
-    implementation presentationDependencies.daggerAndroid
-    implementation presentationDependencies.daggerSupport
-    kapt presentationDependencies.daggerCompiler
-    kapt presentationDependencies.daggerProcessor
+    implementation sharedDependencies.dagger
+    implementation sharedDependencies.daggerAndroid
+    implementation sharedDependencies.daggerSupport
+    kapt sharedDependencies.daggerCompiler
+    kapt sharedDependencies.daggerProcessor
 
-    implementation presentationDependencies.rxJava
-    implementation presentationDependencies.rxAndroid
+    implementation sharedDependencies.rxJava
+    implementation sharedDependencies.rxAndroid
 
     testImplementation testDependencies.mockito
     testImplementation testDependencies.assertJ
-    testImplementation junit5()
-    testImplementation junit5Params()
-    testCompileOnly testDependencies.junitPlugin
+    testImplementation testDependencies.junit4
 
     implementation developmentDependencies.kotlin
 }
