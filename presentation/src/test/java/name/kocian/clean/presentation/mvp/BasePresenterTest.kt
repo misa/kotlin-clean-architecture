@@ -10,6 +10,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnitRunner
 
+@Suppress("FunctionName")
 @RunWith(MockitoJUnitRunner::class)
 class BasePresenterTest {
     lateinit var presenter: BasePresenter<MvpView>

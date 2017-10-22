@@ -11,6 +11,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.junit.MockitoJUnitRunner
 
+@Suppress("FunctionName")
 @RunWith(MockitoJUnitRunner::class)
 class NetworkManagerImplTest {
     lateinit var networkManager: NetworkManager

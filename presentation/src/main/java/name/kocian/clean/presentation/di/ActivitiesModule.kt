@@ -7,6 +7,7 @@ import name.kocian.clean.presentation.ui.sample.SampleModule
 
 @Module
 @ActivityScope
+@Suppress("unused")
 abstract class ActivitiesModule {
 
     @ContributesAndroidInjector(modules = arrayOf(
