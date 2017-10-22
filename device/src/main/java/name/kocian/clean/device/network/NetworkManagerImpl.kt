@@ -7,7 +7,7 @@ import com.cantrowitz.rxbroadcast.RxBroadcast
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class NetworkManagerImpl @Inject constructor(val context: Context) : NetworkManager {
+class NetworkManagerImpl @Inject constructor(private val context: Context) : NetworkManager {
 
     override fun isConnectionEstablished(): Boolean {
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

@@ -12,7 +12,7 @@ import javax.inject.Named
 
 @AppScope
 @dagger.Module
-class ApplicationModule(val context: Context) {
+class ApplicationModule(private val context: Context) {
 
     @Provides
     fun provideContext(): Context {

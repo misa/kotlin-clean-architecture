@@ -13,7 +13,7 @@ import org.mockito.junit.MockitoJUnitRunner
 @Suppress("FunctionName")
 @RunWith(MockitoJUnitRunner::class)
 class BasePresenterTest {
-    lateinit var presenter: BasePresenter<MvpView>
+    private lateinit var presenter: BasePresenter<MvpView>
 
     @Mock
     private lateinit var mockNetworkManager: NetworkManager
