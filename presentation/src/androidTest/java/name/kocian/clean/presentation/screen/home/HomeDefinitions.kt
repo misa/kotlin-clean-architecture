@@ -6,21 +6,38 @@ import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.espresso.matcher.ViewMatchers.withText
 import android.support.test.rule.ActivityTestRule
 import name.kocian.clean.R
+import name.kocian.clean.presentation.base.MockWebServerRule
 import name.kocian.clean.presentation.base.UiTest
 import name.kocian.clean.presentation.ui.sample.MainActivity
+import okhttp3.mockwebserver.MockResponse
 import org.junit.Rule
 
+@Suppress("ClassName")
 open class HomeDefinitions(feature: String, description: String)
     : UiTest(feature, description) {
 
-    @get:Rule
-    @Suppress("unused")
+    @Rule
+    @JvmField
     val activityRule = ActivityTestRule(MainActivity::class.java)
 
+    @Rule
+    @JvmField
+    val mockWebServerRule = MockWebServerRule()
+
+    companion object {
+        val responseText = "Clean Architecture"
+    }
+
     class Given {
+        object server {
+            fun willRespondWithSampleData() {
+                MockWebServerRule.server.enqueue(MockResponse().setBody("[{\"name\": \"$responseText\"}]"))
+            }
+        }
+
         object user {
             fun hasOpenedHomeScreen() {
-                // TODO
+                Thread.sleep(50)
             }
         }
     }
@@ -36,7 +53,7 @@ open class HomeDefinitions(feature: String, description: String)
     class Then {
         object user {
             fun willSeeSampleText() {
-                onView(withId(R.id.welcome)).check(matches(withText("test")))
+                onView(withId(R.id.welcome)).check(matches(withText(responseText)))
             }
         }
     }

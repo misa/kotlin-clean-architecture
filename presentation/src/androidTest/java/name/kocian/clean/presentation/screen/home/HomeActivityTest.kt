@@ -13,6 +13,7 @@ class HomeActivityTest : HomeDefinitions(
     fun displayHomeScreen() {
         scenario = "Opens the application screen and displays sample text."
 
+        Given.server.willRespondWithSampleData()
         Given.user.hasOpenedHomeScreen()
 
         When.user.isOnHomeScreen()

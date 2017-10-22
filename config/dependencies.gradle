@@ -85,6 +85,7 @@ ext {
             assertJ:            "org.assertj:assertj-core:${assertJVersion}",
             espressoCore:       "com.android.support.test.espresso:espresso-core:${espressoCoreVersion}",
             espressoRunner:     "com.android.support.test:runner:${espressoRunnerVersion}",
+            mockWebServer:      "com.squareup.okhttp3:mockwebserver:${okHttpVersion}",
     ]
 
     /**
