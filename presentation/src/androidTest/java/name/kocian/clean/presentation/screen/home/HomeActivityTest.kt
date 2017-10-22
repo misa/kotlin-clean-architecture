@@ -16,7 +16,7 @@ class HomeActivityTest : HomeDefinitions(
         Given.server.willRespondWithSampleData()
         Given.user.hasOpenedHomeScreen()
 
-        When.user.isOnHomeScreen()
+        When.user.clicksOnSampleText()
         Then.user.willSeeSampleText()
     }
 }

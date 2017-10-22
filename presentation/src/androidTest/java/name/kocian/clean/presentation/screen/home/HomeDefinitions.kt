@@ -1,6 +1,7 @@
 package name.kocian.clean.presentation.screen.home
 
 import android.support.test.espresso.Espresso.onView
+import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.espresso.matcher.ViewMatchers.withText
@@ -40,8 +41,8 @@ open class HomeDefinitions(feature: String, description: String)
 
     class When {
         object user {
-            fun isOnHomeScreen() {
-                // TODO
+            fun clicksOnSampleText() {
+                onView(withId(R.id.welcome)).perform(click())
             }
         }
     }
