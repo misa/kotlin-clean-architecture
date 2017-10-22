@@ -7,7 +7,6 @@ import dagger.Module
 import dagger.Provides
 import name.kocian.clean.datasource.BuildConfig
 import name.kocian.clean.datasource.service.SampleService
-import name.kocian.clean.domain.di.AppScope
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -22,14 +21,12 @@ class NetworkModule {
     }
 
     @Provides
-    @AppScope
-    internal fun provideProductService(retrofit: Retrofit): SampleService {
+    fun provideProductService(retrofit: Retrofit): SampleService {
         return retrofit.create(SampleService::class.java)
     }
 
     @Provides
-    @AppScope
-    internal fun provideRetrofit(httpClient: OkHttpClient, gson: Gson): Retrofit {
+    fun provideRetrofit(httpClient: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
                 .client(httpClient)
                 .addConverterFactory(GsonConverterFactory.create(gson))
@@ -39,8 +36,7 @@ class NetworkModule {
     }
 
     @Provides
-    @AppScope
-    internal fun provideHttpClient(): OkHttpClient {
+    fun provideHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
 
         if (BuildConfig.DEBUG) {
@@ -57,8 +53,7 @@ class NetworkModule {
     }
 
     @Provides
-    @AppScope
-    internal fun provideGson(): Gson {
+    fun provideGson(): Gson {
         return GsonBuilder().create()
     }
 }
