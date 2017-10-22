@@ -1,6 +1,8 @@
 package name.kocian.clean.presentation.base
 
 import name.kocian.clean.datasource.di.NetworkModule
+import name.kocian.clean.presentation.util.JsonFile
+import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.rules.TestRule
 import org.junit.runner.Description
@@ -10,6 +12,10 @@ class MockWebServerRule : TestRule {
 
     companion object {
         lateinit var server: MockWebServer
+
+        fun enqueue(fileName: String) {
+            server.enqueue(MockResponse().setBody(JsonFile(fileName).load()))
+        }
     }
 
     override fun apply(base: Statement, description: Description) = MockMockWebServerStatement(base)
